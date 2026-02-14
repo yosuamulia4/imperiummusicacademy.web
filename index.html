@@ -3,312 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMPERIUM Music Academy | Elevate Your Rhythm</title>
+    <title>IMPERIUM Music Academy | Professional Excellence</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
     <style>
-        /* --- CSS INTERNAL --- */
         :root {
-            --primary-color: #38bdf8; /* Biru Cerah Profesional */
-            --bg-dark: #0f172a;
-            --bg-card: #1e293b;
-            --text-light: #f8fafc;
-            --transition: all 0.3s ease;
+            --primary: #38bdf8;
+            --accent: #f472b6;
+            --dark: #020617;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --glass: rgba(255, 255, 255, 0.05);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
+            background-color: var(--dark);
+            color: #fff;
             line-height: 1.6;
             scroll-behavior: smooth;
         }
 
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            background: rgba(15, 23, 42, 0.95);
+        /* Background Dinamis */
+        .bg-overlay {
             position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.85)),
+                        url('https://images.unsplash.com/photo-1514525253361-bee8a4874a73?q=80&w=1964&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+        /* Navbar */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 8%; background: rgba(2, 6, 23, 0.9);
+            position: fixed; width: 100%; z-index: 1000;
+            backdrop-filter: blur(10px); border-bottom: 1px solid var(--glass);
         }
 
-        .logo span { color: var(--primary-color); }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            align-items: center;
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        
+        /* Logo Styling */
+        .main-logo {
+            width: 50px; 
+            height: 50px; 
+            object-fit: contain;
+            border-radius: 8px;
+            background: #fff; /* Memberikan kontras jika logo transparan */
+            padding: 2px;
         }
 
-        nav ul li { margin-left: 30px; }
+        .logo-text { line-height: 1.1; }
 
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 14px;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        nav ul li a:hover { color: var(--primary-color); }
-
-        .btn-nav {
-            background: var(--primary-color);
-            padding: 10px 22px;
-            border-radius: 50px;
-            color: #fff !important;
-            font-weight: 600;
-        }
+        nav ul { display: flex; list-style: none; gap: 30px; align-items: center; }
+        nav ul li a { text-decoration: none; color: #cbd5e1; font-weight: 500; font-size: 0.9rem; transition: var(--transition); }
+        nav ul li a:hover { color: var(--primary); }
 
         /* Hero Section */
         header {
-            height: 100vh;
-            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
-                        url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding-top: 80px;
+            height: 100vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 0 5%;
         }
 
         .hero-content h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 20px;
-            line-height: 1.2;
+            font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800;
+            line-height: 1.1; margin-bottom: 20px;
         }
 
-        .hero-content p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            color: #94a3b8;
+        .hero-content span {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        .main-btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background: var(--primary-color);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: var(--transition);
-            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
-        }
+        /* Vision & Philosophy */
+        .vision-section { padding: 100px 8%; background: var(--glass); }
+        .grid-vp { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .vp-card h3 { color: var(--primary); letter-spacing: 2px; margin-bottom: 15px; }
 
-        .main-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(56, 189, 248, 0.4);
-        }
+        /* Programs */
+        .programs { padding: 100px 8%; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; }
 
-        /* Section Styling */
-        section { padding: 100px 8%; }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-        }
-
-        .section-title span { color: var(--primary-color); }
-
-        /* Classes/Services Grid */
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        .program-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px; align-items: stretch;
         }
 
         .card {
-            background: var(--bg-card);
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            transition: var(--transition);
-            border: 1px solid rgba(255,255,255,0.05);
+            background: var(--card-bg); padding: 40px; border-radius: 24px;
+            border: 1px solid var(--glass); transition: var(--transition);
+            position: relative; display: flex; flex-direction: column;
+            backdrop-filter: blur(5px);
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-color);
-            background: #243147;
+        /* Featured: Kelas Privat */
+        .card.featured {
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+            background: linear-gradient(145deg, rgba(56, 189, 248, 0.1), rgba(30, 41, 59, 0.9));
+            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.2);
         }
 
-        .card i {
-            font-size: 3.5rem;
-            color: var(--primary-color);
-            margin-bottom: 25px;
+        .card.featured::before {
+            content: "REKOMENDASI";
+            position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+            background: var(--primary); color: var(--dark); padding: 5px 15px;
+            border-radius: 20px; font-size: 0.7rem; font-weight: 800;
         }
 
-        .card h3 { margin-bottom: 15px; font-size: 1.5rem; }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); }
 
-        /* Pricing/Classes Info */
-        .info-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 40px;
+        .price-tag { margin-top: auto; padding-top: 20px; font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+
+        .btn-reg {
+            display: inline-block; margin-top: 20px; padding: 12px 25px;
+            background: var(--primary); color: var(--dark);
+            text-decoration: none; border-radius: 12px; font-weight: 700;
+            text-align: center; transition: var(--transition);
         }
 
-        .info-tag {
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--primary-color);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
+        .btn-reg:hover { background: #fff; transform: scale(1.05); }
 
         /* Footer */
-        footer {
-            background: #020617;
-            padding: 60px 8% 30px;
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
+        footer { background: #010409; padding: 80px 8% 40px; text-align: center; border-top: 1px solid var(--glass); }
+        .social-links { display: flex; justify-content: center; gap: 30px; margin: 30px 0; }
+        .social-links a { font-size: 1.8rem; color: #fff; transition: var(--transition); }
+        .social-links a:hover { color: var(--primary); transform: translateY(-5px); }
+        .footer-info { color: #64748b; font-size: 0.8rem; margin-top: 20px; }
 
-        .socials { margin: 30px 0; }
-        .socials a {
-            color: #fff;
-            font-size: 1.8rem;
-            margin: 0 15px;
-            transition: var(--transition);
-        }
-
-        .socials a:hover { color: var(--primary-color); }
-
-        .copyright {
-            font-size: 0.9rem;
-            color: #64748b;
-        }
-
-        /* Responsive Mobile */
         @media (max-width: 768px) {
-            nav ul { display: none; } /* Simpel untuk versi 1.0 */
-            .hero-content h1 { font-size: 2.5rem; }
-            section { padding: 60px 5%; }
+            nav ul { display: none; }
+            .card.featured { transform: scale(1); margin: 20px 0; }
         }
     </style>
 </head>
 <body>
 
+    <div class="bg-overlay"></div>
+
     <nav>
-        <div class="logo">IMPERIUM <span>MUSIC</span></div>
+        <div class="logo-area">
+            <img src="https://lh3.googleusercontent.com/d/1US_PjnoJUFgFalU7nJxWAuv4tA0CGB8j" alt="Logo Imperium" class="main-logo">
+            <div class="logo-text">
+                <span style="font-weight: 800; font-size: 1.2rem; display: block; color: #fff;">IMPERIUM</span>
+                <span style="font-size: 0.7rem; letter-spacing: 2px; color: var(--primary); font-weight: 600;">MUSIC ACADEMY</span>
+            </div>
+        </div>
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#program">Program</a></li>
-            <li><a href="#about">Tentang</a></li>
-            <li><a href="https://wa.me/6285185443185" class="btn-nav">Daftar Sekarang</a></li>
+            <li><a href="#about">Visi & Filosofi</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="https://wa.me/6285185443185" class="btn-reg" style="margin-top:0; padding: 8px 18px;">Daftar</a></li>
         </ul>
     </nav>
 
     <header id="home">
         <div class="hero-content">
-            <h1>Elevate Your Musical Talent</h1>
-            <p>Bimbel Musik Profesional di Batam. Kuasai instrumen favoritmu dengan kurikulum yang praktis dan menyenangkan.</p>
-            <a href="#program" class="main-btn">Cek Program Kami <i class="fas fa-arrow-right"></i></a>
+            <h4 style="color: var(--primary); letter-spacing: 5px; margin-bottom: 15px; font-weight: 600;">ELEVATE YOUR RHYTHM</h4>
+            <h1>Transform Potentials Into <span>Excellence.</span></h1>
+            <p style="max-width: 650px; margin: 0 auto 40px; color: #94a3b8; font-size: 1.1rem;">
+                Edukasi musik lintas generasi untuk anak-anak, Gen Z, hingga profesional. 
+                Bangun karakter, disiplin, dan karir musik Anda bersama mentor berpengalaman.
+            </p>
+            <a href="#programs" class="btn-reg" style="padding: 18px 45px; font-size: 1rem;">Lihat Program Belajar</a>
         </div>
     </header>
 
-    <section id="program">
-        <h2 class="section-title">Program <span>Pilihan</span></h2>
-        <div class="container">
-            <div class="card">
-                <i class="fas fa-guitar"></i>
-                <h3>Gitar & Bass</h3>
-                <p>Mulai dari pengenalan chord hingga teknik melodi dan improvisasi untuk pelayanan atau perform.</p>
-                <div class="info-grid">
-                    <span class="info-tag">Offline</span>
-                    <span class="info-tag">Online</span>
-                </div>
+    <section id="about" class="vision-section">
+        <div class="grid-vp">
+            <div class="vp-card">
+                <h3>VISION</h3>
+                <p style="color: #cbd5e1; text-align: justify; font-size: 1.05rem;">
+                    Menjadi ekosistem edukasi musik terdepan yang mentransformasi bakat lintas generasi menjadi musisi visioner yang profesional, adaptif, dan berstandar global.
+                </p>
             </div>
-
-            <div class="card">
-                <i class="fas fa-drum"></i>
-                <h3>Drum Academy</h3>
-                <p>Pelajari teknik dasar rudiment, groove, hingga fill-in drum yang solid untuk berbagai genre.</p>
-                <div class="info-grid">
-                    <span class="info-tag">Offline Only</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <i class="fas fa-video"></i>
-                <h3>Interactive Online</h3>
-                <p>Belajar langsung dari rumah via Zoom/Gmeet dengan jadwal yang fleksibel bagi pekerja atau pelajar.</p>
-                <div class="info-grid">
-                    <span class="info-tag">E-Certificate</span>
-                </div>
+            <div class="vp-card">
+                <h3>PHILOSOPHY</h3>
+                <p style="color: #cbd5e1; text-align: justify; font-size: 1.05rem;">
+                    Di IMPERIUM, musik adalah investasi karakter. Kami melampaui metode konvensional untuk membentuk musisi yang tidak hanya mahir secara instrumen, tapi juga memiliki integritas dan jiwa yang kuat.
+                </p>
             </div>
         </div>
     </section>
 
-    <section id="about" style="background: #0a101f; padding: 100px 8%;">
-    <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-        <h2 class="section-title">Visi & <span>Filosofi Kami</span></h2>
-        
-        <p style="color: #94a3b8; font-size: 1.15rem; line-height: 1.8; margin-bottom: 30px; text-align: justify;">
-            <strong>IMPERIUM Music Academy</strong> hadir sebagai jembatan bagi Anda yang ingin menguasai seni musik secara komprehensif. Kami percaya bahwa musik adalah bahasa universal yang mampu membangun karakter, disiplin, dan kreativitas tinggi.
-        </p>
-        
-        <p style="color: #94a3b8; font-size: 1.15rem; line-height: 1.8; margin-bottom: 40px; text-align: justify;">
-            Dengan mentor yang berpengalaman luas di bidang pelayanan ibadah maupun industri musik komersial, kami memastikan kurikulum yang Anda dapatkan selalu relevan. Anda tidak hanya akan diajarkan menjadi pemain musik yang mahir, tetapi juga seorang musisi yang memiliki "jiwa" dan pemahaman teori yang solid.
-        </p>
+    <section id="programs" class="programs">
+        <div class="section-title">
+            <h2 style="font-weight: 800;">Our <span style="color: var(--primary);">Programs</span></h2>
+            <p style="color: #64748b; margin-top: 10px;">Program terukur untuk semua tingkat kemahiran.</p>
+        </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 50px;">
-            <div style="background: #1e293b; padding: 25px; border-radius: 15px; border-left: 4px solid var(--primary-color);">
-                <h4 style="color: #fff; margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--primary-color);"></i> Expert Mentors</h4>
-                <p style="font-size: 0.9rem; color: #94a3b8;">Belajar langsung dari praktisi aktif di industri & pelayanan.</p>
+        <div class="program-grid">
+            <div class="card">
+                <i class="fas fa-music" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 20px;"></i>
+                <h3>Offline Studio</h3>
+                <p style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px;">
+                    Sesi tatap muka di studio kami (Batam). Fasilitas lengkap untuk pengalaman belajar yang maksimal.
+                </p>
+                <div class="price-tag">IDR --</div>
+                <a href="https://wa.me/6285185443185" class="btn-reg">Info Detail</a>
             </div>
-            <div style="background: #1e293b; padding: 25px; border-radius: 15px; border-left: 4px solid var(--primary-color);">
-                <h4 style="color: #fff; margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--primary-color);"></i> Adaptive Method</h4>
-                <p style="font-size: 0.9rem; color: #94a3b8;">Kurikulum fleksibel untuk hobi, pelayanan, maupun profesional.</p>
+
+            <div class="card featured">
+                <i class="fas fa-star" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 20px;"></i>
+                <h3>Private Mastery</h3>
+                <p style="color: #fff; font-size: 1rem; margin-top: 10px; font-weight: 600;">
+                    1-on-1 Eksklusif. Fokus penuh pada akselerasi skill dan pengembangan karir musikal Anda secara intensif.
+                </p>
+                <div class="price-tag" style="color: #fff;">IDR --</div>
+                <a href="https://wa.me/6285185443185" class="btn-reg" style="background: #fff; color: var(--dark);">Daftar Sekarang</a>
             </div>
-            <div style="background: #1e293b; padding: 25px; border-radius: 15px; border-left: 4px solid var(--primary-color);">
-                <h4 style="color: #fff; margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--primary-color);"></i> Community Access</h4>
-                <p style="font-size: 0.9rem; color: #94a3b8;">Bergabung dengan jaringan musisi untuk memperluas koneksi Anda.</p>
+
+            <div class="card">
+                <i class="fas fa-video" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 20px;"></i>
+                <h3>Interactive Online</h3>
+                <p style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px;">
+                    Belajar dari mana saja melalui sesi interaktif live. Solusi tepat untuk Gen Z dan profesional yang sibuk.
+                </p>
+                <div class="price-tag">IDR --</div>
+                <a href="https://wa.me/6285185443185" class="btn-reg">Info Detail</a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <footer>
-        <div class="logo">IMPERIUM <span>MUSIC ACADEMY</span></div>
-        <p style="margin-top: 10px; color: #94a3b8;"> Batam - Kepulauan Riau</p>
-        
-        <div class="socials">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-whatsapp"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
+        <div style="margin-bottom: 30px;">
+            <img src="https://lh3.googleusercontent.com/d/1US_PjnoJUFgFalU7nJxWAuv4tA0CGB8j" alt="Logo" style="width: 60px; filter: grayscale(1) brightness(2);">
+            <h3 style="margin-top: 10px; letter-spacing: 3px;">IMPERIUM GROUP</h3>
         </div>
         
-        <div class="copyright">
-            &copy; 2026 IMPERIUM Group. Founder: <strong>Yosua Sinaga</strong>.
+        <div class="social-links">
+            <a href="https://instagram.com/imperium.musicacademy" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/imperium.musicakademy" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/6285185443185" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+
+        <div class="footer-info">
+            <p>&copy; 2026 <strong>Imperium Music Academy</strong> | Member of IMPERIUM GROUP</p>
+            <p style="margin-top: 5px; opacity: 0.6;">Founded & Managed by Yosua Sinaga</p>
         </div>
     </footer>
 
